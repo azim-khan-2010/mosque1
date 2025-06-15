@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al-Noor Mosque - Islamic Center</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #0d6e6e;
+            --secondary-color: #d4af37;
+            --dark-color: #1a3e3e;
+            --light-color: #f5f5f5;
+            --accent-color: #8e6c88;
+            --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-primary);
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background: var(--dark-color);
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: var(--secondary-color);
+            color: #333;
+        }
+        
+        .btn-secondary:hover {
+            background: #c9a227;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .py-1 { padding: 10px 0; }
+        .py-2 { padding: 20px 0; }
+        .py-3 { padding: 30px 0; }
+        
+        /* Header */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 24px;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .logo span {
+            display: block;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        /* Navigation */
+        nav ul {
+            display: flex;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+            position: relative;
+        }
+        
+        nav ul li a {
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        nav ul li a i {
+            margin-right: 5px;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--dark-color);
+        }
+        
+        /* Prayer Times Banner */
+        .prayer-times {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 15px 0;
+            margin-top: 80px;
+        }
+        
+        .prayer-times-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        
+        .prayer-time {
+            text-align: center;
+            padding: 5px 15px;
+        }
+        
+        .prayer-time.active {
+            background-color: var(--secondary-color);
+            color: #333;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+        .prayer-time h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .prayer-time p {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1560303253-2f85f3a33ab3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Mosque and Ibadah Sections */
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .mosque-section, .ibadah-section {
+            padding: 80px 0;
+        }
+        
+        .mosque-section {
+            background-color: #f9f9f9;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+        
+        /* Janaza Services */
+        .janaza-services {
+            background-color: var(--light-color);
+            padding: 80px 0;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .service-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .service-card:hover .service-image img {
+            transform: scale(1.1);
+        }
+        
+        .service-content {
+            padding: 20px;
+        }
+        
+        .service-content h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        /* Donation Section */
+        .donation {
+            background: linear-gradient(rgba(13, 110, 110, 0.9), rgba(13, 110, 110, 0.9)), url('https://images.unsplash.com/photo-1519817650390-64a93db51149?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .donation h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .donation p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .donation-amounts {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .amount-option {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .amount-option:hover, .amount-option.active {
+            background: white;
+            color: var(--primary-color);
+        }
+        
+        .donation-form input {
+            display: block;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto 15px;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        /* Events Section */
+        .events {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+        
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .event-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .event-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .event-date {
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 15px;
+            text-align: center;
+        }
+        
+        .event-date h3 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        
+        .event-content {
+            padding: 20px;
+        }
+        
+        .event-content h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .event-meta {
+            display: flex;
+            margin-bottom: 15px;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .event-meta span {
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .event-meta i {
+            margin-right: 5px;
+        }
+        
+        /* Quran Section */
+        .quran-section {
+            background-color: #f5f5f5;
+            padding: 80px 0;
+        }
+        
+        .quran-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .quran-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .quran-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .quran-card i {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .quran-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: #fff;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary-color);
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: #bbb;
+            transition: color 0.3s;
+        }
+        
+        .footer-col ul li a:hover {
+            color: #fff;
+        }
+        
+        .contact-info p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bbb;
+            font-size: 14px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: #fff;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .section-title h2 {
+                font-size: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 10px 0;
+            }
+            
+            nav {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background: #fff;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                transition: left 0.3s;
+                padding: 20px;
+            }
+            
+            nav.active {
+                left: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .prayer-times-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .prayer-time {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px 20px;
+            }
+            
+            .prayer-time.active {
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero {
+                padding: 80px 0;
+            }
+            
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .donation h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="https://via.placeholder.com/50" alt="Al-Noor Mosque Logo">
+                <div>
+                    <h1>Al-Noor Mosque</h1>
+                    <span>Islamic Center</span>
+                </div>
+            </div>
+            
+            <button class="mobile-menu-btn">☰</button>
+            
+            <nav>
+                <ul>
+                    <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#mosque"><i class="fas fa-mosque"></i> Mosque</a></li>
+                    <li><a href="#ibadah"><i class="fas fa-pray"></i> Ibadah</a></li>
+                    <li><a href="#janaza"><i class="fas fa-ambulance"></i> Janaza</a></li>
+                    <li><a href="#events"><i class="fas fa-calendar-alt"></i> Events</a></li>
+                    <li><a href="#donate" class="btn">Donate</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Prayer Times Banner -->
+    <section class="prayer-times">
+        <div class="container prayer-times-container">
+            <div class="prayer-time active">
+                <h3>Fajr</h3>
+                <p>5:15 AM</p>
+            </div>
+            <div class="prayer-time">
+                <h3>Dhuhr</h3>
+                <p>1:30 PM</p>
+            </div>
+            <div class="prayer-time">
+                <h3>Asr</h3>
+                <p>4:45 PM</p>
+            </div>
+            <div class="prayer-time">
+                <h3>Maghrib</h3>
+                <p>Sunset</p>
+            </div>
+            <div class="prayer-time">
+                <h3>Isha</h3>
+                <p>8:30 PM</p>
+            </div>
+            <div class="prayer-time">
+                <h3>Jumu'ah</h3>
+                <p>1:30 PM</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Welcome to Al-Noor Mosque</h1>
+            <p>A center for worship, education, and community services based on the teachings of the Quran and Sunnah</p>
+            <a href="#mosque" class="btn">Explore Our Services</a>
+            <a href="#donate" class="btn btn-secondary">Support Our Mosque</a>
+        </div>
+    </section>
+
+    <!-- Mosque Section -->
+    <section class="mosque-section py-3" id="mosque">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Mosque Services</h2>
+                <p>Discover the facilities and services we offer to our community</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-calendar-alt"></i></div>
+                    <h3>Daily Prayers</h3>
+                    <p>All five daily prayers with congregation (Jama'ah) including regular Sunnah prayers</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Islamic School</h3>
+                    <p>Weekend Islamic school for children with Quran, Arabic, and Islamic studies classes</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-user-friends"></i></div>
+                    <h3>Community Programs</h3>
+                    <p>Regular lectures, seminars, and programs for men, women, and youth</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-utensils"></i></div>
+                    <h3>Community Kitchen</h3>
+                    <p>Free meals during Ramadan and for those in need throughout the year</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-hands-helping"></i></div>
+                    <h3>Social Services</h3>
+                    <p>Marriage services, counseling, and support for new Muslims</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-book"></i></div>
+                    <h3>Library</h3>
+                    <p>Islamic library with books in multiple languages for all age groups</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Janaza Services Section -->
+    <section class="janaza-services py-3" id="janaza">
+        <div class="container">
+            <div class="section-title">
+                <h2>Janaza Services</h2>
+                <p>We provide complete Islamic funeral services according to Sunnah</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1573108037329-37aa135a142e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Ghusl Service">
+                    </div>
+                    <div class="service-content">
+                        <h3>Ghusl Service</h3>
+                        <p>Proper washing of the deceased according to Islamic rites by trained personnel</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1580336272340-44a8f17a539a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Janaza Prayer">
+                    </div>
+                    <div class="service-content">
+                        <h3>Janaza Prayer</h3>
+                        <p>Organization of funeral prayers at the mosque or requested location</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1585543805890-6051f7829f98?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Burial Assistance">
+                    </div>
+                    <div class="service-content">
+                        <h3>Burial Assistance</h3>
+                        <p>Guidance and support for cemetery arrangements and burial procedures</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center py-2">
+                <p>For emergency janaza services, please call: <strong>+1 (234) 567-8900</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Section -->
+    <section class="donation py-3" id="donate">
+        <div class="container">
+            <h2>Support Our Mosque</h2>
+            <p>Your donations help us maintain the mosque facilities, run educational programs, and serve the community</p>
+            
+            <div class="donation-amounts">
+                <div class="amount-option">$25</div>
+                <div class="amount-option">$50</div>
+                <div class="amount-option active">$100</div>
+                <div class="amount-option">$250</div>
+                <div class="amount-option">$500</div>
+                <div class="amount-option">Other</div>
+            </div>
+            
+            <form class="donation-form">
+                <input type="text" placeholder="Full Name">
+                <input type="email" placeholder="Email Address">
+                <input type="text" placeholder="Phone Number">
+                <input type="text" placeholder="Amount ($)">
+                <button type="submit" class="btn btn-secondary">Donate Now</button>
+            </form>
+            
+            <p class="py-1">All donations are tax-deductible. We issue receipts for all contributions.</p>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="events py-3" id="events">
+        <div class="container">
+            <div class="section-title">
+                <h2>Upcoming Events</h2>
+                <p>Join us for our regular programs and special events</p>
+            </div>
+            
+            <div class="events-grid">
+                <div class="event-card">
+                    <div class="event-date">
+                        <h3>15</h3>
+                        <p>June 2023</p>
+                    </div>
+                    <div class="event-content">
+                        <h3>Weekly Tafseer Class</h3>
+                        <div class="event-meta">
+                            <span><i class="far fa-clock"></i> 7:30 PM</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Main Prayer Hall</span>
+                        </div>
+                        <p>Explanation of Surah Al-Baqarah by Sheikh Abdullah</p>
+                        <a href="#" class="btn">More Info</a>
+                    </div>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-date">
+                        <h3>18</h3>
+                        <p>June 2023</p>
+                    </div>
+                    <div class="event-content">
+                        <h3>New Muslims Circle</h3>
+                        <div class="event-meta">
+                            <span><i class="far fa-clock"></i> 5:00 PM</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Conference Room</span>
+                        </div>
+                        <p>Special gathering for new Muslims and those interested in Islam</p>
+                        <a href="#" class="btn">More Info</a>
+                    </div>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-date">
+                        <h3>23</h3>
+                        <p>June 2023</p>
+                    </div>
+                    <div class="event-content">
+                        <h3>Family Fun Day</h3>
+                        <div class="event-meta">
+                            <span><i class="far fa-clock"></i> 11:00 AM</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Mosque Grounds</span>
+                        </div>
+                        <p>Community gathering with games, food, and activities for all ages</p>
+                        <a href="#" class="btn">More Info</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center py-2">
+                <a href="#" class="btn">View All Events</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ibadah Section -->
+    <section class="ibadah-section py-3" id="ibadah">
+        <div class="container">
+            <div class="section-title">
+                <h2>Worship Resources</h2>
+                <p>Tools and resources to enhance your worship and connection with Allah</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-praying-hands"></i></div>
+                    <h3>Prayer Times</h3>
+                    <p>Accurate prayer times for your location with notifications and Qibla direction</p>
+                    <a href="#" class="btn">Access</a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-calendar-alt"></i></div>
+                    <h3>Islamic Calendar</h3>
+                    <p>Hijri calendar with important Islamic dates and event notifications</p>
+                    <a href="#" class="btn">View</a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-mosque"></i></div>
+                    <h3>Masjid Finder</h3>
+                    <p>Locate mosques and prayer facilities near your current location</p>
+                    <a href="#" class="btn">Find</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quran Section -->
+    <section class="quran-section py-3">
+        <div class="container">
+            <div class="section-title">
+                <h2>Quran Resources</h2>
+                <p>Access the Holy Quran in multiple formats and languages</p>
+            </div>
+            
+            <div class="quran-grid">
+                <div class="quran-card">
+                    <i class="fas fa-quran"></i>
+                    <h3>Quran Recitation</h3>
+                    <p>Listen to beautiful recitations by famous Qaris with translations</p>
+                    <a href="#" class="btn">Listen Now</a>
+                </div>
+                
+                <div class="quran-card">
+                    <i class="fas fa-book-open"></i>
+                    <h3>Quran Reading</h3>
+                    <p>Read the Quran in Arabic with translations in multiple languages</p>
+                    <a href="#" class="btn">Read Now</a>
+                </div>
+                
+                <div class="quran-card">
+                    <i class="fas fa-search"></i>
+                    <h3>Quran Search</h3>
+                    <p>Search the Quran by keyword, topic, or verse reference</p>
+                    <a href="#" class="btn">Search Now</a>
+                </div>
+                
+                <div class="quran-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Quran Classes</h3>
+                    <p>Learn to read and memorize the Quran with our qualified teachers</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo">
+                        <img src="https://via.placeholder.com/50" alt="Al-Noor Mosque Logo">
+                        <h3>Al-Noor Mosque</h3>
+                    </div>
+                    <p>Providing religious, educational, and social services to the Muslim community since 1995.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#mosque">Mosque Services</a></li>
+                        <li><a href="#ibadah">Worship Resources</a></li>
+                        <li><a href="#janaza">Janaza Services</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#donate">Donate</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Prayer Times</h3>
+                    <ul>
+                        <li>Fajr: 5:15 AM</li>
+                        <li>Dhuhr: 1:30 PM</li>
+                        <li>Asr: 4:45 PM</li>
+                        <li>Maghrib: Sunset</li>
+                        <li>Isha: 8:30 PM</li>
+                        <li>Jumu'ah: 1:30 PM</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Islamic Way, City, State 12345</p>
+                        <p><i class="fas fa-phone"></i> +1 (234) 567-8900</p>
+                        <p><i class="fas fa-envelope"></i> info@alnoormosque.com</p>
+                        <p><i class="fas fa-clock"></i> Open daily from Fajr to Isha</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Al-Noor Mosque. All Rights Reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelector('nav').classList.remove('active');
+            });
+        });
+        
+        // Donation amount selection
+        document.querySelectorAll('.amount-option').forEach(option => {
+            option.addEventListener('click', function() {
+                document.querySelectorAll('.amount-option').forEach(opt => {
+                    opt.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+        
+        // Update current prayer time
+        function updateCurrentPrayer() {
+            const now = new Date();
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            const currentTime = hours * 60 + minutes;
+            
+            // Sample prayer times in minutes since midnight
+            const prayerTimes = [
+                {name: "Fajr", time: 5 * 60 + 15},    // 5:15 AM
+                {name: "Dhuhr", time: 13 * 60 + 30},  // 1:30 PM
+                {name: "Asr", time: 16 * 60 + 45},    // 4:45 PM
+                {name: "Maghrib", time: 19 * 60 + 0}, // 7:00 PM (example)
+                {name: "Isha", time: 20 * 60 + 30
